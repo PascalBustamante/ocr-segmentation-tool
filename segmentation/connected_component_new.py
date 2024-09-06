@@ -40,17 +40,6 @@ class ConnectedComponent:
         # Approximate eccentricity using aspect ratio
         return 1 - min(self.width, self.height) / max(self.width, self.height)
 
-
-
-
-'''
-    This function is not well implemented since the formation of the CC class,
-    comonent merger should be kept track of in either the CC class or 
-    a seperate data structure. 
-
-    The CC class might be keeping track of the mergers by keeping track of parents,
-    this might be an issue and possibly a bad way to init and store the mergers.
-'''
 def merge_components(stats, centroids, threshold):
     merged = []
     merger_data = {}

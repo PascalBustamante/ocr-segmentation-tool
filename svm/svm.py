@@ -39,3 +39,39 @@ class TextClassifier:
         self.classifier.fit(x_scaled, labels)
 
         print("Best parameters:", self.classifier.best_params_)
+
+    def evaluate(self, connected_components, labels):
+        # Extract features
+        X, _ = extract_features(connected_components)
+        X_scaled = self.scaler.transform(X)
+
+        # Evaluate the model
+        y_pred = self.classifier.predict(X_scaled)
+        print(classification_report(labels, y_pred))
+
+    def classify(self, connected_component):
+        # Extract features
+        X, _ = extract_features([connected_component])
+        X_scaled = self.scaler.transform(X)
+
+        # Classify the connected component
+        prediction = self.classifier.predict(X_scaled)[0]
+        return prediction
+
+# Usage example
+if __name__ == "__main__":
+    # Assume you have a list of connected components and their labels
+    connected_components = [...]  # Your list of connected components
+    labels = [...]  # Your list of labels (0 for normal text, 1 for math text)
+
+    # Create and train the text classifier
+    classifier = TextClassifier()
+    classifier.train(connected_components, labels)
+
+    # Evaluate the classifier
+    classifier.evaluate(connected_components, labels)
+
+    # Classify a new connected component
+    new_cc = connected_components[0]
+    prediction = classifier.classify(new_cc)
+    print(f"Prediction: {'Math Text' if prediction == 1 else 'Normal Text'}")

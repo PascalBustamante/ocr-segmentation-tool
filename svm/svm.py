@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import classification_report
 
-from preprocessing.segmentation.connected_component_new import extract_features
+from segmentation.connected_component_new import extract_features
 
 class TextClassifier:
     def __init__(self):

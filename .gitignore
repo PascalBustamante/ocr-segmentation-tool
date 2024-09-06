@@ -1,0 +1,34 @@
+# Virtual Environment
+venv/
+env/
+__env__/
+
+# Config
+config*
+denoiser_config.py
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VSCode-specific files
+.vscode/
+
+# Environments
+.env
+.env.backup
+*.env
+*.env.*.local
+.env.local
+.env.development
+.env.test
+.env.production
+.venv
+
+# Data
+test_data/
+denoising-dirty-documents/
+.pickle
+features.csv
+
+# pycache
+__pycache__/
